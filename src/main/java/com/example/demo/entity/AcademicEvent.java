@@ -19,9 +19,9 @@ public class AcademicEvent {
     private String description;
     private LocalDateTime submittedAt;
     public AcademicEvent() {}
-    public AcademicEvent(Long id, Long branchId, String title, String eventType,
-                         LocalDate startDate, LocalDate endDate,
-                         String location, String description, LocalDateTime submittedAt) {
+    
+    public AcademicEvent(Long id, Long branchId, String title, String eventType,LocalDate startDate, LocalDate endDate,
+    String location, String description, LocalDateTime submittedAt) {
         this.id = id;
         this.branchId = branchId;
         this.title = title;

@@ -14,8 +14,7 @@ public class BranchProfile {
     private LocalDateTime lastSyncAt;
     private Boolean active;
     public BranchProfile() {}
-    public BranchProfile(Long id, String branchCode, String branchName,
-                         String contactEmail, LocalDateTime lastSyncAt, Boolean active) {
+    public BranchProfile(Long id, String branchCode, String branchName, String contactEmail, LocalDateTime lastSyncAt, Boolean active) {
         this.id = id;
         this.branchCode = branchCode;
         this.branchName = branchName;
