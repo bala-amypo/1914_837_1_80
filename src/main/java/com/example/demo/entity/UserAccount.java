@@ -15,8 +15,7 @@ public class UserAccount {
     private String department;
     private LocalDateTime createdAt;
     public UserAccount() {}
-    public UserAccount(Long id, String fullName, String email, String password,
-                       String role, String department, LocalDateTime createdAt) {
+    public UserAccount(Long id, String fullName, String email, String password,String role, String department, LocalDateTime createdAt) {
         this.id = id;
         this.fullName = fullName;
         this.email = email;

@@ -17,9 +17,7 @@ public class ClashRecord {
     private LocalDateTime detectedAt;
     private Boolean resolved;
     public ClashRecord() {}
-    public ClashRecord(Long id, Long eventAId, Long eventBId,
-                       String clashType, String severity,
-                       String details, LocalDateTime detectedAt, Boolean resolved) {
+    public ClashRecord(Long id, Long eventAId, Long eventBId,String clashType, String severity,String details, LocalDateTime detectedAt, Boolean resolved) {
         this.id = id;
         this.eventAId = eventAId;
         this.eventBId = eventBId;

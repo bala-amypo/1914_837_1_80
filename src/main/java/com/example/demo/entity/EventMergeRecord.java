@@ -17,9 +17,8 @@ public class EventMergeRecord {
     private String mergeReason;
     private LocalDateTime createdAt;
     public EventMergeRecord() {}
-    public EventMergeRecord(Long id, String sourceEventIds, String mergedTitle,
-                            LocalDate mergedStartDate, LocalDate mergedEndDate,
-                            String mergeReason, LocalDateTime createdAt) {
+    public EventMergeRecord(Long id, String sourceEventIds, String mergedTitle,  LocalDate mergedStartDate, LocalDate mergedEndDate,
+String mergeReason, LocalDateTime createdAt) {
         this.id = id;
         this.sourceEventIds = sourceEventIds;
         this.mergedTitle = mergedTitle;

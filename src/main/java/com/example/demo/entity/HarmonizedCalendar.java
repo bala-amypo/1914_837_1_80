@@ -20,9 +20,8 @@ public class HarmonizedCalendar {
 
     public HarmonizedCalendar() {}
 
-    public HarmonizedCalendar(Long id, String title, String generatedBy,
-                              LocalDateTime generatedAt, LocalDate effectiveFrom,
-                              LocalDate effectiveTo, String eventsJson) {
+    public HarmonizedCalendar(Long id, String title, String generatedBy,LocalDateTime generatedAt, LocalDate effectiveFrom,
+LocalDate effectiveTo, String eventsJson) {
         this.id = id;
         this.title = title;
         this.generatedBy = generatedBy;
