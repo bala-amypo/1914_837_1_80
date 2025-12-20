@@ -1,17 +1,45 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 import java.util.List;
+
+import org.springframework.stereotype.Service;
+
 import com.example.demo.entity.AcademicEvent;
+import com.example.demo.repository.AcademicEventRepository;
+import com.example.demo.service.AcademicEventService;
 
-public interface AcademicEventService {
+@Service
+public class AcademicEventServiceImpl implements AcademicEventService {
 
-    AcademicEvent createAcademicEvent(AcademicEvent event);
+    private final AcademicEventRepository repository;
 
-    List<AcademicEvent> getAllAcademicEvents();
+    public AcademicEventServiceImpl(AcademicEventRepository repository) {
+        this.repository = repository;
+    }
 
-    AcademicEvent getAcademicEventById(Long id);
+    @Override
+    public AcademicEvent createAcademicEvent(AcademicEvent event) {
+        return repository.save(event);
+    }
 
-    AcademicEvent updateAcademicEvent(Long id, AcademicEvent event);
+    @Override
+    public List<AcademicEvent> getAllAcademicEvents() {
+        return repository.findAll();
+    }
 
-    void deleteAcademicEvent(Long id);
+    @Override
+    public AcademicEvent getAcademicEventById(Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("AcademicEvent not found"));
+    }
+
+    @Override
+    public AcademicEvent updateAcademicEvent(Long id, AcademicEvent event) {
+        return repository.save(event);
+    }
+
+    @Override
+    public void deleteAcademicEvent(Long id) {
+        repository.deleteById(id);
+    }
 }
