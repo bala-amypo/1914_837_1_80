@@ -1,9 +1,9 @@
 package com.example.demo.service;
 
 import java.util.List;
-import com.example.demo.entity.HarmonizedCalender;
+import com.example.demo.entity.HarmonizedCalendar;
 
-public interface HarmonizedCalenderService {
+public interface HarmonizedCalendarService {
 
     HarmonizedCalender createCalendar(HarmonizedCalender calendar);
 

@@ -3,17 +3,17 @@ package com.example.demo.service.impl;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.entity.HarmonizedCalender;
+import com.example.demo.entity.HarmonizedCalendar;
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.HarmonizedCalenderRepository;
-import com.example.demo.service.HarmonizedCalenderService;
+import com.example.demo.service.HarmonizedCalendarService;
 
 @Service
-public class HarmonizedCalenderServiceImpl implements HarmonizedCalenderService {
+public class HarmonizedCalendarServiceImpl implements HarmonizedCalendarService {
 
     private final HarmonizedCalenderRepository repository;
 
-    public HarmonizedCalenderServiceImpl(HarmonizedCalenderRepository repository) {
+    public HarmonizedCalendarServiceImpl(HarmonizedCalenderRepository repository) {
         this.repository = repository;
     }
 
