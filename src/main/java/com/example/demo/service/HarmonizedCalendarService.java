@@ -5,9 +5,13 @@ import com.example.demo.entity.HarmonizedCalendar;
 
 public interface HarmonizedCalendarService {
 
-    HarmonizedCalender createCalendar(HarmonizedCalender calender);
-    List<HarmonizedCalender> getAllCalendars();
-    HarmonizedCalender getCalendarById(Long id);
-    HarmonizedCalender updateCalendar(Long id, HarmonizedCalender calender);
+    HarmonizedCalendar createCalendar(HarmonizedCalendar calender);
+
+    List<HarmonizedCalendar> getAllCalendars();
+
+    HarmonizedCalendar getCalendarById(Long id);
+
+    HarmonizedCalendar updateCalendar(Long id, HarmonizedCalendar calender);
+
     void deleteCalendar(Long id);
 }
