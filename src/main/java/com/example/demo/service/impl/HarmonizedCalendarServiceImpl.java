@@ -18,8 +18,8 @@ public class HarmonizedCalendarServiceImpl implements HarmonizedCalendarService 
     }
 
     @Override
-    public HarmonizedCalendar createCalendar(HarmonizedCalendar calender) {
-        return repository.save(calender);
+    public HarmonizedCalendar createCalendar(HarmonizedCalendar calendar) {
+        return repository.save(calendar);
     }
 
     @Override
@@ -34,8 +34,8 @@ public class HarmonizedCalendarServiceImpl implements HarmonizedCalendarService 
     }
 
     @Override
-    public HarmonizedCalendar updateCalendar(Long id, HarmonizedCalendar calender) {
-        return repository.save(calender);
+    public HarmonizedCalendar updateCalendar(Long id, HarmonizedCalendar calendar) {
+        return repository.save(calendar);
     }
 
     @Override
