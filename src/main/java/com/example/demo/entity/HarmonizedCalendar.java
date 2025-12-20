@@ -18,10 +18,11 @@ public class HarmonizedCalendar {
     @Column(columnDefinition = "TEXT")
     private String eventsJson;
 
-    public HarmonizedCalendar() {}
-
-    public HarmonizedCalendar(Long id, String title, String generatedBy,LocalDateTime generatedAt, LocalDate effectiveFrom,
-LocalDate effectiveTo, String eventsJson) {
+    public HarmonizedCalendar() {
+        
+    }
+    public HarmonizedCalendar(Long id, String title, String generatedBy, LocalDateTime generatedAt, LocalDate effectiveFrom,
+     LocalDate effectiveTo, String eventsJson) {
         this.id = id;
         this.title = title;
         this.generatedBy = generatedBy;
@@ -30,7 +31,6 @@ LocalDate effectiveTo, String eventsJson) {
         this.effectiveTo = effectiveTo;
         this.eventsJson = eventsJson;
     }
-
     @PrePersist
     public void onCreate() {
         this.generatedAt = LocalDateTime.now();
