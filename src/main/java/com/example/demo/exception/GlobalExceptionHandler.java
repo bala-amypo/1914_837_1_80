@@ -14,12 +14,12 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(ValidationException.class)
-    public ResponseEntity<String> handleValidationException(ValidationException ex) {
+    public ResponseEntity<String> handleValidation(ValidationException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<String> handleGeneralException(Exception ex) {
+    public ResponseEntity<String> handleGeneral(Exception ex) {
         return new ResponseEntity<>("Internal Server Error", HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
