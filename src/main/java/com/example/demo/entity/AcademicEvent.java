@@ -40,7 +40,6 @@ public class AcademicEvent {
     public void onCreate() {
         this.submittedAt = LocalDateTime.now();
     }
-
     public Long getId() { return id; }
     public Long getBranchId() { return branchId; }
     public void setBranchId(Long branchId) { this.branchId = branchId; }
