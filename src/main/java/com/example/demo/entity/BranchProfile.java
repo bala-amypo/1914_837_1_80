@@ -31,21 +31,41 @@ public class BranchProfile {
     public void onCreate() {
         this.lastSyncAt = LocalDateTime.now();
     }
+    public Long getId() { 
+        return id; 
+    }
+    public void setId(Long id) { 
+        this.id = id; 
+    }
 
-    // Getters & Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public String getBranchCode() { 
+        return branchCode; 
+    }
+    public void setBranchCode(String branchCode) { 
+        this.branchCode = branchCode; 
+    }
 
-    public String getBranchCode() { return branchCode; }
-    public void setBranchCode(String branchCode) { this.branchCode = branchCode; }
+    public String getBranchName() { 
+        return branchName; 
+    }
+    public void setBranchName(String branchName) { 
+        this.branchName = branchName; 
+    }
 
-    public String getBranchName() { return branchName; }
-    public void setBranchName(String branchName) { this.branchName = branchName; }
+    public String getContactEmail() { 
+        return contactEmail; 
+    }
+    public void setContactEmail(String contactEmail) { 
+        this.contactEmail = contactEmail; 
+    }
 
-    public String getContactEmail() { return contactEmail; }
-    public void setContactEmail(String contactEmail) { this.contactEmail = contactEmail; }
-
-    public LocalDateTime getLastSyncAt() { return lastSyncAt; }
-    public Boolean getActive() { return active; }
-    public void setActive(Boolean active) { this.active = active; }
+    public LocalDateTime getLastSyncAt() { 
+        return lastSyncAt; 
+    }
+    public Boolean getActive() { 
+        return active; 
+    }
+    public void setActive(Boolean active) { 
+        this.active = active; 
+    }
 }
