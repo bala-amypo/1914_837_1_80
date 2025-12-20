@@ -4,12 +4,12 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.entity.HarmonizedCalender;
+import com.example.demo.entity.HarmonizedCalendar;
 import com.example.demo.repository.HarmonizedCalendarRepository;
-import com.example.demo.service.HarmonizedCalenderService;
+import com.example.demo.service.HarmonizedCalendarService;
 
 @Service
-public class HarmonizedCalendarServiceImpl implements HarmonizedCalenderService {
+public class HarmonizedCalendarServiceImpl implements HarmonizedCalendarService {
 
     private final HarmonizedCalendarRepository repository;
 

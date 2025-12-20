@@ -4,51 +4,42 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.entity.HarmonizedCalendar;
-import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.repository.HarmonizedCalendarRepository;
-import com.example.demo.service.HarmonizedCalendarService;
+import com.example.demo.entity.AcademicEvent;
+import com.example.demo.repository.AcademicEventRepository;
+import com.example.demo.service.AcademicEventService;
 
 @Service
-public class HarmonizedCalendarServiceImpl implements HarmonizedCalendarService {
+public class AcademicEventServiceImpl implements AcademicEventService {
 
-    private final HarmonizedCalendarRepository repository;
+    private final AcademicEventRepository repository;
 
-    public HarmonizedCalendarServiceImpl(HarmonizedCalendarRepository repository) {
+    public AcademicEventServiceImpl(AcademicEventRepository repository) {
         this.repository = repository;
     }
 
     @Override
-    public HarmonizedCalendar createCalendar(HarmonizedCalendar calendar) {
-        return repository.save(calendar);
+    public AcademicEvent createAcademicEvent(AcademicEvent event) {
+        return repository.save(event);
     }
 
     @Override
-    public List<HarmonizedCalendar> getAllCalendars() {
+    public List<AcademicEvent> getAllAcademicEvents() {
         return repository.findAll();
     }
 
     @Override
-    public HarmonizedCalendar getCalendarById(Long id) {
+    public AcademicEvent getAcademicEventById(Long id) {
         return repository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException(
-                        "HarmonizedCalendar not found with id: " + id));
+                .orElseThrow(() -> new RuntimeException("AcademicEvent not found"));
     }
 
     @Override
-    public HarmonizedCalendar updateCalendar(Long id, HarmonizedCalendar calendar) {
-        HarmonizedCalendar existing = getCalendarById(id);
-
-        existing.setAcademicYear(calendar.getAcademicYear());
-        existing.setSemester(calendar.getSemester());
-        existing.setBranch(calendar.getBranch());
-
-        return repository.save(existing);
+    public AcademicEvent updateAcademicEvent(Long id, AcademicEvent event) {
+        return repository.save(event);
     }
 
     @Override
-    public void deleteCalendar(Long id) {
-        HarmonizedCalendar existing = getCalendarById(id);
-        repository.delete(existing);
+    public void deleteAcademicEvent(Long id) {
+        repository.deleteById(id);
     }
 }
