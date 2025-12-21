@@ -12,35 +12,36 @@ public class HarmonizedCalendar {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String title;
-
-    @Column(nullable = false)
     private String generatedBy;
-
-    @Column(nullable = false)
     private LocalDateTime generatedAt;
-
-    @Column(nullable = false)
     private LocalDate effectiveFrom;
-
-    @Column(nullable = false)
     private LocalDate effectiveTo;
 
-    @Lob
-    @Column(columnDefinition = "LONGTEXT")
+    @Column(columnDefinition = "TEXT")
     private String eventsJson;
 
     public HarmonizedCalendar() {
     }
 
+    public HarmonizedCalendar(Long id, String title, String generatedBy,LocalDateTime generatedAt,LocalDate effectiveFrom, LocalDate effectiveTo,
+ String eventsJson) {
+        this.id = id;
+        this.title = title;
+        this.generatedBy = generatedBy;
+        this.generatedAt = generatedAt;
+        this.effectiveFrom = effectiveFrom;
+        this.effectiveTo = effectiveTo;
+        this.eventsJson = eventsJson;
+    }
+
     @PrePersist
-    public void onCreate() {
+    public void prePersist() {
         this.generatedAt = LocalDateTime.now();
     }
 
-    // Getters & Setters
     public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }

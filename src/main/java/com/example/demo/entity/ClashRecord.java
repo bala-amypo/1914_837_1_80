@@ -17,12 +17,14 @@ public class ClashRecord {
     private String severity;
     private String details;
     private LocalDateTime detectedAt;
-    private Boolean resolved;
+    private Boolean resolved = false;
+
     public ClashRecord() {
     }
 
-    public ClashRecord(Long id, Long eventAId, Long eventBId,String clashType, String severity,
-String details, LocalDateTime detectedAt, Boolean resolved) {
+    public ClashRecord(Long id, Long eventAId, Long eventBId, String clashType,
+                       String severity, String details,
+                       LocalDateTime detectedAt, Boolean resolved) {
         this.id = id;
         this.eventAId = eventAId;
         this.eventBId = eventBId;
@@ -34,10 +36,31 @@ String details, LocalDateTime detectedAt, Boolean resolved) {
     }
 
     @PrePersist
-    public void onCreate() {
+    public void prePersist() {
         this.detectedAt = LocalDateTime.now();
-        this.resolved = false;
+        if (this.resolved == null) this.resolved = false;
     }
 
-    // Getters and Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public Long getEventAId() { return eventAId; }
+    public void setEventAId(Long eventAId) { this.eventAId = eventAId; }
+
+    public Long getEventBId() { return eventBId; }
+    public void setEventBId(Long eventBId) { this.eventBId = eventBId; }
+
+    public String getClashType() { return clashType; }
+    public void setClashType(String clashType) { this.clashType = clashType; }
+
+    public String getSeverity() { return severity; }
+    public void setSeverity(String severity) { this.severity = severity; }
+
+    public String getDetails() { return details; }
+    public void setDetails(String details) { this.details = details; }
+
+    public LocalDateTime getDetectedAt() { return detectedAt; }
+
+    public Boolean getResolved() { return resolved; }
+    public void setResolved(Boolean resolved) { this.resolved = resolved; }
 }
