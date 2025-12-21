@@ -1,33 +1,44 @@
 package com.example.demo.controller;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.demo.entity.AcademicEvent;
+import com.example.demo.service.AcademicEventService;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.demo.entity.AcademicEvent;
-import com.example.demo.repository.AcademicEventRepository;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/events")
-@CrossOrigin
 public class AcademicEventController {
-    @Autowired
-    private AcademicEventRepository eventRepo;
+
+    private final AcademicEventService academicEventService;
+
+    public AcademicEventController(AcademicEventService academicEventService) {
+        this.academicEventService = academicEventService;
+    }
+
     @PostMapping
     public AcademicEvent createEvent(@RequestBody AcademicEvent event) {
-        return eventRepo.save(event);
+        return academicEventService.createEvent(event);
     }
+
+    @PutMapping("/{id}")
+    public AcademicEvent updateEvent(@PathVariable Long id,
+                                     @RequestBody AcademicEvent event) {
+        return academicEventService.updateEvent(id, event);
+    }
+
+    @GetMapping("/branch/{branchId}")
+    public List<AcademicEvent> getByBranch(@PathVariable Long branchId) {
+        return academicEventService.getEventsByBranch(branchId);
+    }
+
+    @GetMapping("/{id}")
+    public AcademicEvent getEvent(@PathVariable Long id) {
+        return academicEventService.getEventById(id);
+    }
+
     @GetMapping
     public List<AcademicEvent> getAllEvents() {
-        return eventRepo.findAll();
-    }
-    @GetMapping("/{id}")
-    public AcademicEvent getEventById(@PathVariable Long id) {
-        return eventRepo.findById(id).orElse(null);
-    }
-    @DeleteMapping("/{id}")
-    public void deleteEvent(@PathVariable Long id) {
-        eventRepo.deleteById(id);
+        return academicEventService.getAllEvents();
     }
 }
