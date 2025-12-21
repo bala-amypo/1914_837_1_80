@@ -1,43 +1,23 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.ClashRecord;
-import com.example.demo.service.ClashDetectionService;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import com.example.demo.entity.ClashRecord;
+import com.example.demo.repository.ClashRecordRepository;
 @RestController
 @RequestMapping("/api/clashes")
+@CrossOrigin
 public class ClashRecordController {
-
-    private final ClashDetectionService clashDetectionService;
-
-    public ClashRecordController(ClashDetectionService clashDetectionService) {
-        this.clashDetectionService = clashDetectionService;
-    }
-
-    @PostMapping
-    public ClashRecord log(@RequestBody ClashRecord clash) {
-        return clashDetectionService.logClash(clash);
-    }
-
-    @PutMapping("/{id}/resolve")
-    public ClashRecord resolve(@PathVariable Long id) {
-        return clashDetectionService.resolveClash(id);
-    }
-
-    @GetMapping("/event/{eventId}")
-    public List<ClashRecord> getByEvent(@PathVariable Long eventId) {
-        return clashDetectionService.getClashesForEvent(eventId);
-    }
-
-    @GetMapping("/unresolved")
-    public List<ClashRecord> unresolved() {
-        return clashDetectionService.getUnresolvedClashes();
-    }
-
+    @Autowired
+    private ClashRecordRepository clashRepo;
     @GetMapping
-    public List<ClashRecord> all() {
-        return clashDetectionService.getAllClashes();
+    public List<ClashRecord> getAllClashes() {
+        return clashRepo.findAll();
+    }
+    @GetMapping("/unresolved")
+    public List<ClashRecord> getUnresolvedClashes() {
+        return clashRepo.findByResolvedFalse();
     }
 }
