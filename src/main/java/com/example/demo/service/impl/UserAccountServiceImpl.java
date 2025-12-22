@@ -16,7 +16,6 @@ public class UserAccountServiceImpl implements UserAccountService {
     public UserAccountServiceImpl(UserAccountRepository repository) {
         this.repository = repository;
     }
-
     @Override
     public UserAccount createUser(UserAccount user) {
         return repository.save(user);
