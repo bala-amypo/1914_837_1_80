@@ -24,8 +24,7 @@ public class UserAccount {
 
     private LocalDateTime createdAt;
 
-    public UserAccount() {
-    }
+    public UserAccount() {}
 
     public UserAccount(Long id, String fullName, String email, String password,
                        String role, String department, LocalDateTime createdAt) {
@@ -46,6 +45,7 @@ public class UserAccount {
         }
     }
 
+    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -65,4 +65,5 @@ public class UserAccount {
     public void setDepartment(String department) { this.department = department; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 }

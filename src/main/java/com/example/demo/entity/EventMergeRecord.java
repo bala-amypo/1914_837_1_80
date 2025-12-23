@@ -13,14 +13,18 @@ public class EventMergeRecord {
     private Long id;
 
     private String sourceEventIds;
+
     private String mergedTitle;
+
     private LocalDate mergedStartDate;
+
     private LocalDate mergedEndDate;
+
     private String mergeReason;
+
     private LocalDateTime createdAt;
 
-    public EventMergeRecord() {
-    }
+    public EventMergeRecord() {}
 
     public EventMergeRecord(Long id, String sourceEventIds, String mergedTitle,
                             LocalDate mergedStartDate, LocalDate mergedEndDate,
@@ -39,6 +43,7 @@ public class EventMergeRecord {
         this.createdAt = LocalDateTime.now();
     }
 
+    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -58,4 +63,5 @@ public class EventMergeRecord {
     public void setMergeReason(String mergeReason) { this.mergeReason = mergeReason; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
+    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
 }

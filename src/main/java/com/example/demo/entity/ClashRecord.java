@@ -13,17 +13,23 @@ public class ClashRecord {
 
     private Long eventAId;
     private Long eventBId;
+
     private String clashType;
+
     private String severity;
+
     private String details;
+
     private LocalDateTime detectedAt;
-    private Boolean resolved = false;
 
-    public ClashRecord() {
-    }
+    private Boolean resolved;
 
-    public ClashRecord(Long id, Long eventAId, Long eventBId, String clashType,
- String severity, String details,LocalDateTime detectedAt, Boolean resolved) {
+    public ClashRecord() {}
+
+    public ClashRecord(Long id, Long eventAId, Long eventBId,
+                       String clashType, String severity,
+                       String details, LocalDateTime detectedAt,
+                       Boolean resolved) {
         this.id = id;
         this.eventAId = eventAId;
         this.eventBId = eventBId;
@@ -37,9 +43,12 @@ public class ClashRecord {
     @PrePersist
     public void prePersist() {
         this.detectedAt = LocalDateTime.now();
-        if (this.resolved == null) this.resolved = false;
+        if (this.resolved == null) {
+            this.resolved = false;
+        }
     }
 
+    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -59,6 +68,7 @@ public class ClashRecord {
     public void setDetails(String details) { this.details = details; }
 
     public LocalDateTime getDetectedAt() { return detectedAt; }
+    public void setDetectedAt(LocalDateTime detectedAt) { this.detectedAt = detectedAt; }
 
     public Boolean getResolved() { return resolved; }
     public void setResolved(Boolean resolved) { this.resolved = resolved; }

@@ -13,19 +13,24 @@ public class HarmonizedCalendar {
     private Long id;
 
     private String title;
+
     private String generatedBy;
+
     private LocalDateTime generatedAt;
+
     private LocalDate effectiveFrom;
+
     private LocalDate effectiveTo;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(length = 5000)
     private String eventsJson;
 
-    public HarmonizedCalendar() {
-    }
+    public HarmonizedCalendar() {}
 
-    public HarmonizedCalendar(Long id, String title, String generatedBy,LocalDateTime generatedAt,LocalDate effectiveFrom, LocalDate effectiveTo,
- String eventsJson) {
+    public HarmonizedCalendar(Long id, String title, String generatedBy,
+                              LocalDateTime generatedAt,
+                              LocalDate effectiveFrom, LocalDate effectiveTo,
+                              String eventsJson) {
         this.id = id;
         this.title = title;
         this.generatedBy = generatedBy;
@@ -40,6 +45,7 @@ public class HarmonizedCalendar {
         this.generatedAt = LocalDateTime.now();
     }
 
+    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -50,6 +56,7 @@ public class HarmonizedCalendar {
     public void setGeneratedBy(String generatedBy) { this.generatedBy = generatedBy; }
 
     public LocalDateTime getGeneratedAt() { return generatedAt; }
+    public void setGeneratedAt(LocalDateTime generatedAt) { this.generatedAt = generatedAt; }
 
     public LocalDate getEffectiveFrom() { return effectiveFrom; }
     public void setEffectiveFrom(LocalDate effectiveFrom) { this.effectiveFrom = effectiveFrom; }
