@@ -9,9 +9,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * TEST-COMPATIBLE JwtUtil
- */
 public class JwtUtil {
 
     private Key key;
@@ -72,8 +69,6 @@ public class JwtUtil {
             return false;
         }
     }
-
-    // ✅ Inner wrapper class EXPECTED BY TESTS
     public static class TokenWrapper {
         private final Claims payload;
 
