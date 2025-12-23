@@ -39,10 +39,6 @@ public class JwtUtil {
         return generateToken(claims, user.getEmail());
     }
 
-    /**
-     * 🔥 THIS IS WHAT FIXES YOUR TESTS
-     * We return a custom wrapper that HAS getPayload()
-     */
     public TokenWrapper parseToken(String token) {
         Claims claims = Jwts.parserBuilder()
                 .setSigningKey(key)
