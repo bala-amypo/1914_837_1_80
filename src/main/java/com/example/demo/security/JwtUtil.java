@@ -9,6 +9,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * TEST-COMPATIBLE JwtUtil
+ */
 public class JwtUtil {
 
     private Key key;
@@ -33,33 +36,33 @@ public class JwtUtil {
         claims.put("email", user.getEmail());
         claims.put("role", user.getRole());
 
-        return Jwts.builder()
-                .setClaims(claims)
-                .setSubject(user.getEmail())
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + 3600000))
-                .signWith(key)
-                .compact();
+        return generateToken(claims, user.getEmail());
     }
 
-    // 🔥 THIS IS THE CRITICAL FIX
-    public Jws<Claims> parseToken(String token) {
-        return Jwts.parserBuilder()
+    /**
+     * 🔥 THIS IS WHAT FIXES YOUR TESTS
+     * We return a custom wrapper that HAS getPayload()
+     */
+    public TokenWrapper parseToken(String token) {
+        Claims claims = Jwts.parserBuilder()
                 .setSigningKey(key)
                 .build()
-                .parseClaimsJws(token);
+                .parseClaimsJws(token)
+                .getBody();
+
+        return new TokenWrapper(claims);
     }
 
     public String extractUsername(String token) {
-        return parseToken(token).getBody().getSubject();
+        return parseToken(token).getPayload().getSubject();
     }
 
     public String extractRole(String token) {
-        return (String) parseToken(token).getBody().get("role");
+        return (String) parseToken(token).getPayload().get("role");
     }
 
     public Long extractUserId(String token) {
-        Object id = parseToken(token).getBody().get("userId");
+        Object id = parseToken(token).getPayload().get("userId");
         if (id instanceof Integer) {
             return ((Integer) id).longValue();
         }
@@ -71,6 +74,19 @@ public class JwtUtil {
             return extractUsername(token).equals(username);
         } catch (Exception e) {
             return false;
+        }
+    }
+
+    // ✅ Inner wrapper class EXPECTED BY TESTS
+    public static class TokenWrapper {
+        private final Claims payload;
+
+        public TokenWrapper(Claims payload) {
+            this.payload = payload;
+        }
+
+        public Claims getPayload() {
+            return payload;
         }
     }
 }
