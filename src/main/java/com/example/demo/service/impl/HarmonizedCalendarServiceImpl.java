@@ -8,7 +8,6 @@ import com.example.demo.service.HarmonizedCalendarService;
 import java.time.LocalDate;
 import java.util.List;
 
-@Service
 
 public class HarmonizedCalendarServiceImpl implements HarmonizedCalendarService {
 

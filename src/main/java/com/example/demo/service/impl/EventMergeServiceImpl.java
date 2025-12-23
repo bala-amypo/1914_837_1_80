@@ -10,7 +10,6 @@ import com.example.demo.service.EventMergeService;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
-@Service
 
 public class EventMergeServiceImpl implements EventMergeService {
 

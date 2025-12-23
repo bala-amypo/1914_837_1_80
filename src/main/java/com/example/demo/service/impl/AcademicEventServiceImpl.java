@@ -8,7 +8,6 @@ import com.example.demo.service.AcademicEventService;
 
 import java.util.List;
 
-@Service
 public class AcademicEventServiceImpl implements AcademicEventService {
 
     private final AcademicEventRepository academicEventRepository;

@@ -6,7 +6,6 @@ import com.example.demo.repository.ClashRecordRepository;
 import com.example.demo.service.ClashDetectionService;
 
 import java.util.List;
-@Service
 
 public class ClashDetectionServiceImpl implements ClashDetectionService {
 
