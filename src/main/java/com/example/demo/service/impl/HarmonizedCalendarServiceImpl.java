@@ -8,6 +8,9 @@ import com.example.demo.service.HarmonizedCalendarService;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+@Service
 
 public class HarmonizedCalendarServiceImpl implements HarmonizedCalendarService {
 

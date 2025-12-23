@@ -10,6 +10,9 @@ import com.example.demo.service.EventMergeService;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.springframework.stereotype.Service;
+
+@Service
 
 public class EventMergeServiceImpl implements EventMergeService {
 

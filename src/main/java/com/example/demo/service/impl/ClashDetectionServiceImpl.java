@@ -6,6 +6,9 @@ import com.example.demo.repository.ClashRecordRepository;
 import com.example.demo.service.ClashDetectionService;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
+
+@Service
 
 public class ClashDetectionServiceImpl implements ClashDetectionService {
 

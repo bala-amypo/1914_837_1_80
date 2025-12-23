@@ -7,6 +7,10 @@ import com.example.demo.repository.AcademicEventRepository;
 import com.example.demo.service.AcademicEventService;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
+
+@Service
+
 
 public class AcademicEventServiceImpl implements AcademicEventService {
 
