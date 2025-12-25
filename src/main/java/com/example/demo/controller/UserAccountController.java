@@ -10,29 +10,19 @@ import java.util.List;
 @RequestMapping("/auth/users")
 public class UserAccountController {
 
-    private final UserAccountService service;
+    private final UserAccountService userAccountService;
 
-    public UserAccountController(UserAccountService service) {
-        this.service = service;
+    public UserAccountController(UserAccountService userAccountService) {
+        this.userAccountService = userAccountService;
     }
 
     @GetMapping
     public List<UserAccount> getAllUsers() {
-        return service.getAllUsers();
+        return userAccountService.getAllUsers();
     }
 
     @GetMapping("/{id}")
     public UserAccount getUser(@PathVariable Long id) {
-        return service.getUserById(id);
-    }
-
-    @PostMapping
-    public UserAccount createUser(@RequestBody UserAccount user) {
-        return service.createUser(user);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable Long id) {
-        service.deleteUser(id);
+        return userAccountService.getUser(id);
     }
 }
