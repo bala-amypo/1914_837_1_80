@@ -24,5 +24,14 @@ public class UserAccountController {
     @GetMapping("/{id}")
     public UserAccount getUser(@PathVariable Long id) {
         return userAccountService.getUser(id);
+
+     @PostMapping
+    public UserAccount createUser(@RequestBody UserAccount user) {
+        return userAccountService.register(user);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteUser(@PathVariable Long id) {
+        return "Deleted user with id: " + id;
     }
 }
