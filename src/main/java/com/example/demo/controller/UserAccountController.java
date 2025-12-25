@@ -16,22 +16,27 @@ public class UserAccountController {
         this.userAccountService = userAccountService;
     }
 
+    // GET ALL USERS
     @GetMapping
     public List<UserAccount> getAllUsers() {
         return userAccountService.getAllUsers();
     }
 
+    // GET USER BY ID
     @GetMapping("/{id}")
     public UserAccount getUser(@PathVariable Long id) {
         return userAccountService.getUser(id);
+    }
 
-     @PostMapping
+    // CREATE USER (POST)
+    @PostMapping
     public UserAccount createUser(@RequestBody UserAccount user) {
         return userAccountService.register(user);
     }
 
+    // DELETE USER
     @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable Long id) {
-        return "Deleted user with id: " + id;
+        return "User deleted with id: " + id;
     }
 }
