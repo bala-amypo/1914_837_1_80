@@ -22,19 +22,16 @@ public class UserAccountController {
         return userAccountService.getAllUsers();
     }
 
-    // GET USER BY ID
     @GetMapping("/{id}")
     public UserAccount getUser(@PathVariable Long id) {
         return userAccountService.getUser(id);
     }
 
-    // CREATE USER (POST)
     @PostMapping
     public UserAccount createUser(@RequestBody UserAccount user) {
         return userAccountService.register(user);
     }
 
-    // DELETE USER
     @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable Long id) {
         return "User deleted with id: " + id;
